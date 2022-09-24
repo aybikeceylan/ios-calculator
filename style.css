@@ -38,6 +38,7 @@
   border-radius: 50px;
   padding-bottom: 2rem;
 }
+
 .box {
   background-color: white;
   border-radius: 50%;
@@ -48,6 +49,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.5s all;
+}
+.box:active {
+  opacity: 0.5;
+  transform: scale(95%);
 }
 .box__grey {
   background: #a5a5a5;
@@ -67,4 +73,20 @@
   justify-content: flex-start;
   padding-left: 43px;
   width: 12rem;
+}
+.current-display {
+  display: inline-block;
+  color: white;
+  width: 25rem;
+  height: 50%;
+  border: 2px solid red;
+  font-size: 4rem;
+}
+.previous-display {
+  display: inline-block;
+  color: #333;
+  width: 25rem;
+  height: 50%;
+  border: 2px solid red;
+  font-size: 3rem;
 }
