@@ -84,9 +84,10 @@
 }
 .previous-display {
   display: inline-block;
-  color: #333;
+  color: white;
   width: 25rem;
   height: 50%;
   border: 2px solid red;
   font-size: 3rem;
+  opacity: 0.5;
 }
