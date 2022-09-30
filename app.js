@@ -29,15 +29,19 @@ btnArea.addEventListener("click", (e) => {
         previous.innerHTML = current.innerHTML
         current.innerHTML = ""
         //previous ekrana sayı ve operatör yazıldı current temizlendi
-
+        counter++
+    }
+    if ((current.innerHTML == "") && (e.target.classList.contains("box-calc")) && (counter > 0)) {
+        console.log(previousList);
+        previousList.push(`${e.target.innerHTML}`)
+        lastCalc = previousList.pop()
+        previous.innerHTML = previousList[0] + lastCalc
     }
     if (e.target.classList.contains("box-eq")) {
         previousList.push(`${current.innerText}`)
         console.log(previousList);
         //eşittir e basılmadan önce current ta olan sayıyı array e pushladım
-        // console.log(previousList[0], typeof (previousList[0]));
-        // console.log(previousList[1], typeof (previousList[1]));
-        // console.log(previousList[2], typeof (previousList[2]));
+
         // opeartörleri tanımladım
         if (previousList[1] == "+") {
             result = +previousList[0] + +previousList[2]
@@ -56,14 +60,19 @@ btnArea.addEventListener("click", (e) => {
             console.log(result)
         }
         //işlem bitince ekrana sonucu yazdırdım.previousu temizledim. array i temizledim.
-        // console.log(previous.innerHTML)
+
         current.innerHTML = ""
-        previous.innerHTML = result
-        // console.log(previous.innerHTML)
-        // console.log(current.innerHTML)
-        // console.log(previousList);
+        result2 = result.toString()
+
+        if (result2.includes(".")) {
+            previous.innerHTML = result.toFixed(5)
+
+        } else {
+            previous.innerHTML = result
+
+        }
         previousList = []
-        resultList.push(`${result}`)
+        resultList.push(`${result.toFixed(5)}`)
         console.log(resultList);
 
     }
@@ -86,13 +95,21 @@ btnArea.addEventListener("click", (e) => {
         resultList = []
     }
     if (e.target.classList.contains("box-dot")) {
-        if (current.innerHTML = ".") {
-            current.innerHTML = "0."
+        console.log(current.innerHTML);
+        if (current.innerHTML != "") {
+            console.log(current.innerHTML);
+            current.innerHTML += e.target.innerHTML
+            console.log(current.innerHTML);
+
         } else {
-            current.innerHTML += "."
+            console.log(current.innerHTML);
+            current.innerHTML = "0" + e.target.innerHTML
+            console.log(current.innerHTML);
         }
     }
-
+    if ((e.target.classList.contains("box-ae")) && (current.innerHTML !== "")) {
+        current.innerHTML = 0 - current.innerHTML
+    }
 
 })
 
