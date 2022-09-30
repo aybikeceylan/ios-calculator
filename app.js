@@ -9,16 +9,15 @@ let result;
 
 btnArea.addEventListener("click", (e) => {
 
-    console.log(e.target.innerHTML);
-    if (e.target.classList.contains("box-num") && counter < 6) {
+
+    if (e.target.classList.contains("box-num")) {
 
         current.innerHTML += e.target.innerHTML
-        counter++
 
     }
 
 
-    if (e.target.classList.contains("box-calc")) {
+    if ((current.innerHTML !== "") && (e.target.classList.contains("box-calc"))) {
 
         previousList.push(`${current.innerText}`)
         //ilk yazılan sayıyı array da tuttum
@@ -36,9 +35,9 @@ btnArea.addEventListener("click", (e) => {
         previousList.push(`${current.innerText}`)
         console.log(previousList);
         //eşittir e basılmadan önce current ta olan sayıyı array e pushladım
-        console.log(previousList[0], typeof (previousList[0]));
-        console.log(previousList[1], typeof (previousList[1]));
-        console.log(previousList[2], typeof (previousList[2]));
+        // console.log(previousList[0], typeof (previousList[0]));
+        // console.log(previousList[1], typeof (previousList[1]));
+        // console.log(previousList[2], typeof (previousList[2]));
         // opeartörleri tanımladım
         if (previousList[1] == "+") {
             result = +previousList[0] + +previousList[2]
@@ -57,33 +56,41 @@ btnArea.addEventListener("click", (e) => {
             console.log(result)
         }
         //işlem bitince ekrana sonucu yazdırdım.previousu temizledim. array i temizledim.
-        console.log(previous.innerHTML)
+        // console.log(previous.innerHTML)
         current.innerHTML = ""
         previous.innerHTML = result
-        console.log(previous.innerHTML)
-        console.log(current.innerHTML)
-        console.log(previousList);
+        // console.log(previous.innerHTML)
+        // console.log(current.innerHTML)
+        // console.log(previousList);
         previousList = []
-        // resultList.push(`${result}`),
-        //     console.log(resultList);
+        resultList.push(`${result}`)
+        console.log(resultList);
 
     }
-    if ((resultList != []) && (e.target.classList.contains("box-calc"))) {
+
+    if ((resultList.length > 0) && (e.target.classList.contains("box-calc"))) {
         // eğer ekranda sonuç varken yeni işlem yapılacaksa sonucu arraye pushladım.operatörü aldım.arraye attım
-        console.log(previous.innerHTML);
-        console.log(previousList);
         previous.innerHTML = resultList[0]
-        console.log(resultList);
+
         previousList.push(resultList[0])
+        resultList = []
+
         previous.innerHTML += e.target.innerHTML
         previousList.push(`${e.target.innerText}`)
 
-        //previous ekrana sayı ve operatör yazıldı current temizlendi
-        previous.innerHTML = current.innerHTML
+    }
+    if (e.target.classList.contains("box-AC")) {
+        previous.innerHTML = ""
         current.innerHTML = ""
-
-
-
+        previousList = []
+        resultList = []
+    }
+    if (e.target.classList.contains("box-dot")) {
+        if (current.innerHTML = ".") {
+            current.innerHTML = "0."
+        } else {
+            current.innerHTML += "."
+        }
     }
 
 
