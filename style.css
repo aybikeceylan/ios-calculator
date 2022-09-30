@@ -130,7 +130,7 @@
     width: 15rem;
     height: 50%;
     border: 2px solid red;
-    font-size: 4rem;
+    font-size: 2.5rem;
   }
   .previous-display {
     display: inline-block;
@@ -138,7 +138,7 @@
     width: 15rem;
     height: 50%;
     border: 2px solid red;
-    font-size: 3rem;
+    font-size: 2rem;
     opacity: 0.5;
   }
 }

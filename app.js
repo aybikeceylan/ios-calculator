@@ -12,13 +12,13 @@ btnArea.addEventListener("click", (e) => {
         current.innerHTML += e.target.innerHTML
         counter++
     }
-    if (e.target.classList.contains("box-calc")) {
-        current.innerHTML += e.target.innerHTML
-        console.log(current)
-        previous.innerHTML = current.innerHTML
-        current.innerHTML = ""
-        if (e.target.classList.contains)
-    }
+    // if (e.target.classList.contains("box-calc")) {
+    //     current.innerHTML += e.target.innerHTML
+    //     console.log(current)
+    //     previous.innerHTML = current.innerHTML
+    //     current.innerHTML = ""
+    //     if (e.target.classList.contains)
+    // }
 
 
 })
