@@ -35,9 +35,8 @@
   grid-gap: 0.3rem;
   grid-template-columns: repeat(4, 5rem);
   grid-template-rows: repeat(5, 1fr);
-  border-radius: 50%;
-  padding-bottom: 2rem;
-  height: 55vh;
+  width: 100%;
+  padding: 0.3rem;
 }
 
 .box {
@@ -80,7 +79,6 @@
   color: white;
   width: 20rem;
   height: 50%;
-  border: 2px solid red;
   font-size: 4rem;
 }
 .previous-display {
@@ -88,7 +86,6 @@
   color: white;
   width: 20rem;
   height: 50%;
-  border: 2px solid red;
   font-size: 3rem;
   opacity: 0.5;
 }

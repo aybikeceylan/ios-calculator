@@ -65,14 +65,14 @@ btnArea.addEventListener("click", (e) => {
         result2 = result.toString()
 
         if (result2.includes(".")) {
-            previous.innerHTML = result.toFixed(5)
+            previous.innerHTML = result.toFixed(2)
 
         } else {
             previous.innerHTML = result
 
         }
         previousList = []
-        resultList.push(`${result.toFixed(5)}`)
+        resultList.push(`${result.toFixed(2)}`)
         console.log(resultList);
 
     }
