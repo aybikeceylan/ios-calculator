@@ -109,6 +109,10 @@ btnArea.addEventListener("click", (e) => {
     }
     if ((e.target.classList.contains("box-ae")) && (current.innerHTML !== "")) {
         current.innerHTML = 0 - current.innerHTML
+    } else if ((e.target.classList.contains("box-ae")) && (current.innerHTML == "") && (previous.innerHTML !== "")) {
+        current.innerHTML = 0 - previousList[0]
+        previous.innerHTML = ""
+        previousList = []
     }
 
 })

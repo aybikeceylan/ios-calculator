@@ -172,14 +172,14 @@
   .current-display {
     display: inline-block;
     color: white;
-    width: 15rem;
+    width: 13rem;
     height: 50%;
     font-size: 2.5rem;
   }
   .previous-display {
     display: inline-block;
     color: white;
-    width: 15rem;
+    width: 13rem;
     height: 50%;
     font-size: 2rem;
     opacity: 0.5;
