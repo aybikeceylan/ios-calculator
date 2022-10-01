@@ -63,16 +63,17 @@ btnArea.addEventListener("click", (e) => {
 
         current.innerHTML = ""
         result2 = result.toString()
-
+        console.log(result)
         if (result2.includes(".")) {
             previous.innerHTML = result.toFixed(2)
+            console.log(result)
 
         } else {
             previous.innerHTML = result
-
+            console.log(result)
         }
         previousList = []
-        resultList.push(`${result.toFixed(2)}`)
+        resultList.push(`${result}`)
         console.log(resultList);
 
     }
@@ -107,16 +108,20 @@ btnArea.addEventListener("click", (e) => {
             console.log(current.innerHTML);
         }
     }
+    console.log(resultList);
     if ((e.target.classList.contains("box-ae")) && (current.innerHTML !== "")) {
         current.innerHTML = 0 - current.innerHTML
-    } else if ((e.target.classList.contains("box-ae")) && (current.innerHTML == "") && (previous.innerHTML !== "")) {
+        console.log(1);
+    } else if ((e.target.classList.contains("box-ae")) && (current.innerHTML == "") && (previous.innerHTML !== "") && (resultList.length == 0)) {
         current.innerHTML = 0 - previousList[0]
         previous.innerHTML = ""
         previousList = []
-    } else if ((e.target.classList.contains("box-ae")) && (current.innerHTML == "") && (previous.innerHTML !== "") && (resultList.length > 0)) {
+        console.log(2);
+    } else if ((e.target.classList.contains("box-ae")) && (current.innerHTML == "") && (resultList.length > 0)) {
         current.innerHTML = 0 - resultList[0]
         previous.innerHTML = ""
         resultList = []
+        console.log(3);
     }
 
 })
