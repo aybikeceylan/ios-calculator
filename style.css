@@ -137,3 +137,51 @@
     opacity: 0.5;
   }
 }
+@media only screen and (max-width: 390px) {
+  .calc {
+    width: 65%;
+    height: 50%;
+  }
+  .buttons {
+    height: 60%;
+    display: grid;
+    grid-template-columns: repeat(4, 3.5rem);
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .box {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+  }
+  .box__double {
+    border-radius: 55px;
+    grid-area: 5/1/5/3;
+    justify-content: flex-start;
+    padding-left: 15px;
+    width: 7rem;
+  }
+  .blank {
+    height: 30%;
+    text-align: right;
+    padding: 15px;
+    font-size: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .current-display {
+    display: inline-block;
+    color: white;
+    width: 15rem;
+    height: 50%;
+    font-size: 2.5rem;
+  }
+  .previous-display {
+    display: inline-block;
+    color: white;
+    width: 15rem;
+    height: 50%;
+    font-size: 2rem;
+    opacity: 0.5;
+  }
+}
