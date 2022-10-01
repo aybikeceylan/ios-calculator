@@ -145,7 +145,7 @@
 @media only screen and (max-width: 418px) {
   .calc {
     width: 65%;
-    height: 60%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
