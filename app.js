@@ -17,7 +17,7 @@ btnArea.addEventListener("click", (e) => {
     }
 
 
-    if ((current.innerHTML !== "") && (e.target.classList.contains("box-calc"))) {
+    if ((current.innerHTML !== "") && (e.target.classList.contains("box-calc")) && (counter == 0)) {
 
         previousList.push(`${current.innerText}`)
         //ilk yazılan sayıyı array da tuttum
@@ -30,13 +30,84 @@ btnArea.addEventListener("click", (e) => {
         current.innerHTML = ""
         //previous ekrana sayı ve operatör yazıldı current temizlendi
         counter++
+        console.log(counter)
     }
-    if ((current.innerHTML == "") && (e.target.classList.contains("box-calc")) && (counter > 0)) {
+    if ((e.target.classList.contains("box-calc")) && (counter > 0) && (current.innerHTML !== "")) {
+        console.log(e.target.innerHTML);
+        previousList.push(`${current.innerText}`)
         console.log(previousList);
-        previousList.push(`${e.target.innerHTML}`)
-        lastCalc = previousList.pop()
-        previous.innerHTML = previousList[0] + lastCalc
+        if (previousList[1] == "+") {
+            result = +previousList[0] + +previousList[2]
+            console.log(result)
+        } else if (previousList[1] == "-") {
+            result = previousList[0] - previousList[2]
+            console.log(result)
+        } else if (previousList[1] == "x") {
+            result = previousList[0] * previousList[2]
+            console.log(result)
+        } else if (previousList[1] == "÷") {
+            result = previousList[0] / previousList[2]
+            console.log(result)
+        } else if (previousList[1] == "%") {
+            result = +previousList[0] % +previousList[2]
+            console.log(result)
+        }
+        current.innerHTML = ""
+        result2 = result.toString()
+        console.log(result)
+        if (result2.includes(".")) {
+            previous.innerHTML = `${result.toFixed(2)}${e.target.innerHTML}`
+            console.log(result)
+
+        } else {
+            previous.innerHTML = `${result}${e.target.innerHTML}`
+            console.log(result)
+        }
+        previousList = []
+        resultList.push(`${result}`)
+        console.log(resultList);
+        if (e.target.innerHTML == "+") {
+            previousList.push(result)
+            previousList.push(e.target.innerHTML)
+            console.log(result)
+            resultList = []
+            console.log(previousList);
+            counter++
+
+        } else if (e.target.innerHTML == "-") {
+            previousList.push(result)
+            previousList.push(e.target.innerHTML)
+            console.log(result)
+            resultList = []
+            console.log(previousList);
+            counter++
+        } else if (e.target.innerHTML == "x") {
+            previousList.push(result)
+            previousList.push(e.target.innerHTML)
+            console.log(result)
+            resultList = []
+            console.log(previousList);
+            counter++
+        } else if (e.target.innerHTML == "÷") {
+            previousList.push(result)
+            previousList.push(e.target.innerHTML)
+            console.log(result)
+            resultList = []
+            console.log(previousList);
+            counter++
+        } else if (e.target.innerHTML == "%") {
+            previousList.push(result)
+            previousList.push(e.target.innerHTML)
+            console.log(result)
+            resultList = []
+            console.log(previousList);
+            counter++
+        }
+
     }
+
+
+
     if (e.target.classList.contains("box-eq")) {
         previousList.push(`${current.innerText}`)
         console.log(previousList);
