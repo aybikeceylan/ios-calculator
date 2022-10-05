@@ -34,6 +34,7 @@ btnArea.addEventListener("click", (e) => {
     }
     if ((e.target.classList.contains("box-calc")) && (counter > 0) && (current.innerHTML !== "")) {
         console.log(e.target.innerHTML);
+
         previousList.push(`${current.innerText}`)
         console.log(previousList);
         if (previousList[1] == "+") {
@@ -71,6 +72,7 @@ btnArea.addEventListener("click", (e) => {
             previousList.push(e.target.innerHTML)
             console.log(result)
             resultList = []
+            console.log(resultList);
             console.log(previousList);
             counter++
 
@@ -79,6 +81,7 @@ btnArea.addEventListener("click", (e) => {
             previousList.push(e.target.innerHTML)
             console.log(result)
             resultList = []
+            console.log(resultList);
             console.log(previousList);
             counter++
         } else if (e.target.innerHTML == "x") {
@@ -86,6 +89,7 @@ btnArea.addEventListener("click", (e) => {
             previousList.push(e.target.innerHTML)
             console.log(result)
             resultList = []
+            console.log(resultList);
             console.log(previousList);
             counter++
         } else if (e.target.innerHTML == "÷") {
@@ -93,6 +97,7 @@ btnArea.addEventListener("click", (e) => {
             previousList.push(e.target.innerHTML)
             console.log(result)
             resultList = []
+            console.log(resultList);
             console.log(previousList);
             counter++
         } else if (e.target.innerHTML == "%") {
@@ -100,12 +105,19 @@ btnArea.addEventListener("click", (e) => {
             previousList.push(e.target.innerHTML)
             console.log(result)
             resultList = []
+            console.log(resultList);
             console.log(previousList);
             counter++
         }
 
-    }
 
+    }
+    if ((e.target.classList.contains("box-calc")) && (current.innerHTML == "") && (previousList[1] !== e.target.innerHTML) && (previousList[1] !== "")) {
+        previousList.pop()
+        console.log(previousList);
+        previousList.push(e.target.innerHTML)
+        previous.innerHTML = `${previousList[0]}${previousList[1]}`
+    }
 
 
     if (e.target.classList.contains("box-eq")) {
@@ -179,7 +191,7 @@ btnArea.addEventListener("click", (e) => {
             console.log(current.innerHTML);
         }
     }
-    console.log(resultList);
+
     if ((e.target.classList.contains("box-ae")) && (current.innerHTML !== "")) {
         current.innerHTML = 0 - current.innerHTML
         console.log(1);
